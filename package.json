@@ -1,0 +1,29 @@
+{
+  "name": "dbotjs",
+  "version": "1.0.0",
+  "description": "A DiscordJS bot for syncing all the users data to the database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zahqresh/DBotJS.git"
+  },
+  "keywords": [
+    "Discordbot",
+    "Discordjs",
+    "Bot"
+  ],
+  "author": "Muhammad Hamza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zahqresh/DBotJS/issues"
+  },
+  "homepage": "https://github.com/zahqresh/DBotJS#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9"
+  }
+}
