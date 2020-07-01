@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const mongoose = require("mongoose");
 const db = require("./Schema/db");
-var sizeof = require('object-sizeof');
-const {token,prefix} = require('./config/keys');
+var sizeof = require("object-sizeof");
+const { token, prefix } = require("./config/keys");
 //Connect databse
 mongoose.connect(
   "mongodb://localhost:27017/dbot",
@@ -42,35 +42,26 @@ client.on("message", (message) => {
       //check if users are already there then return else save
       let doc;
       db.find({ nickname: obj[i][1] }).then((data) => {
-		 if(sizeof(data) == 0){
-			  
-	  //save users to db
-	  new db({
-		username: obj[i][0],
-		nickname: obj[i][1],
-		roles: obj[i][2],
-	  })
-		.save()
-		.then((data) => {
-		  console.log(data);
-		})
-		.catch((error) => {
-		  throw error;
-		});
-
-		
-			 
-		 }else{
-			 console.log('User already exists');
-			 
-		 }
-		  
-	  });
-	 
+        if (sizeof(data) == 0) {
+          //save users to db
+          new db({
+            username: obj[i][0],
+            nickname: obj[i][1],
+            roles: obj[i][2],
+          })
+            .save()
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              throw error;
+            });
+        } else {
+          console.log("User already exists");
+        }
+      });
     }
   }
 });
-
-
 
 client.login(token);
