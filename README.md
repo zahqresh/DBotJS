@@ -16,7 +16,7 @@ Project is created with:
 * Mongoose
 	
 ## Setup
-To run this project, install it locally by cloning the repo or download the zip file using git clone https://github.com/zehqresh/DBotJS.git :
+To run this project, install it locally by cloning the repo or download the zip file using git clone https://github.com/zahqresh/DBotJS.git :
 ```
 $ npm intall
 $ node app.js
