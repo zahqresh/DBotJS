@@ -55,13 +55,58 @@ client.on("message", (message) => {
             })
             .catch((error) => {
               throw error;
+              message.channel.send(error);
             });
         } else {
           console.log("User already exists");
         }
       });
     }
+    message.channel.send("User synchronized!");
   }
+});
+
+//Updating roles
+client.on("message", (message) => {
+  if (message.content === `${prefix}syncroles`) {
+    let role_id = [];
+    let usernames = [];
+    let obj = [];
+    client.users.cache.map((user) => {
+      usernames.push(user.username); //get username of one user
+      role_id.push(message.guild.members.cache.get(user.id)._roles); //get roles with id of one user
+    });
+
+    //Algo to save roles and username in one obj.
+    for (var j = 0; j < role_id.length; j++) {
+      obj.push([usernames[j], role_id[j]]);
+    }
+
+    for (let i = 0; i < obj.length; i++) {
+      //Find user by username and update the roles
+      db.findOneAndUpdate(
+        {
+          username: usernames[i], // search by username
+        },
+        {
+          roles: role_id[i], // Update roles
+        },
+        {
+          new: true, // return updated doc
+          runValidators: true, // validate before update
+        }
+      )
+        .then((doc) => {
+          console.log("Roles updated!");
+        })
+        .catch((err) => {
+          console.error(err);
+          message.channel.send(err);
+        });
+    }
+    message.channel.send("Roles Updated!");
+  }
+  
 });
 
 client.login(token);
