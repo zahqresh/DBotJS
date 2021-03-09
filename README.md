@@ -6,7 +6,7 @@
 * [Setup](#setup)
 
 ## General info
-DBotJS is a discord bot that syncs user data i.e username,nickname and roles to the database with just one simple command.
+DBOTJS is a discord bot that syncs all your users available in the discordjs guild with a simple commands `/updateUsers`
 	
 ## Technologies
 Project is created with:
@@ -21,3 +21,5 @@ To run this project, install it locally by cloning the repo or download the zip 
 $ npm intall
 $ node app.js
 ```
+##Updates
+Create an issue if something doesn't work or if you need any feature to be added or to contirbute just fork the repo and work on it all Pull Requests all welcomed!
