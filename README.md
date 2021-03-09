@@ -21,5 +21,5 @@ To run this project, install it locally by cloning the repo or download the zip 
 $ npm intall
 $ node app.js
 ```
-### Updates
+#### Note!
 Create an issue if something doesn't work or if you need any feature to be added or to contirbute just fork the repo and work on it all Pull Requests all welcomed!
